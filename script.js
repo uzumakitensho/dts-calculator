@@ -50,10 +50,10 @@ const inputNumber = (number) => {
 }
 
 const inputOperator = (operator) => {
-  console.log(operator);
-  prevNumber = currentNumber;
+  if(calculationOperator === '') prevNumber = currentNumber;
+  
   calculationOperator = operator;
-  currentNumber = '';
+  currentNumber = '0';
 }
 
 const calculate = () => {
@@ -87,7 +87,7 @@ const clearAll = () => {
 
 const inputDecimal = (dot) => {
   if(currentNumber.includes('.')) return;
-  
+
   currentNumber += dot;
 }
 
