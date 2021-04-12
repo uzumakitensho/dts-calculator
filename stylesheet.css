@@ -1,7 +1,7 @@
 .calculator {
 	text-align: center;
 	margin: 0 auto;
-	padding-top: 200px;
+	margin-top: 20px;
 	width: 400px;
 }
 
@@ -33,6 +33,7 @@ button {
 	color: #fff;
 	width: 25%;
 	outline: none;
+	cursor: pointer;
 }
 
 .all-clear, .zero-btn {
