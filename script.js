@@ -3,6 +3,7 @@ const calculatorScreen = document.querySelector('.calculator-screen');
 const operators = document.querySelectorAll('.operator');
 const equalSign = document.querySelector('.equal-sign');
 const clearBtn = document.querySelector('.all-clear');
+const decimal = document.querySelector('.decimal');
 
 let prevNumber = '';
 let calculationOperator = '';
@@ -28,6 +29,11 @@ equalSign.addEventListener('click', () => {
 
 clearBtn.addEventListener('click', () => {
   clearAll();
+  updateScreen(currentNumber);
+})
+
+decimal.addEventListener('click', (event) => {
+  inputDecimal(event.target.value);
   updateScreen(currentNumber);
 })
 
@@ -77,5 +83,11 @@ const clearAll = () => {
   prevNumber = '';
   calculationOperator = '';
   currentNumber = '0';
+}
+
+const inputDecimal = (dot) => {
+  if(currentNumber.includes('.')) return;
+  
+  currentNumber += dot;
 }
 
