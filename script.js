@@ -2,6 +2,7 @@ const numbers = document.querySelectorAll(".number");
 const calculatorScreen = document.querySelector('.calculator-screen');
 const operators = document.querySelectorAll('.operator');
 const equalSign = document.querySelector('.equal-sign');
+const clearBtn = document.querySelector('.all-clear');
 
 let prevNumber = '';
 let calculationOperator = '';
@@ -16,12 +17,17 @@ numbers.forEach((number) => {
 
 operators.forEach((operator) => {
   operator.addEventListener('click', (event) => {
-    //
+    inputOperator(event.target.value);
   })
 })
 
 equalSign.addEventListener('click', () => {
   calculate();
+  updateScreen(currentNumber);
+})
+
+clearBtn.addEventListener('click', () => {
+  clearAll();
   updateScreen(currentNumber);
 })
 
@@ -38,6 +44,7 @@ const inputNumber = (number) => {
 }
 
 const inputOperator = (operator) => {
+  console.log(operator);
   prevNumber = currentNumber;
   calculationOperator = operator;
   currentNumber = '';
@@ -64,5 +71,11 @@ const calculate = () => {
 
   currentNumber = result;
   calculationOperator = '';
+}
+
+const clearAll = () => {
+  prevNumber = '';
+  calculationOperator = '';
+  currentNumber = '0';
 }
 
