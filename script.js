@@ -4,6 +4,7 @@ const operators = document.querySelectorAll('.operator');
 const equalSign = document.querySelector('.equal-sign');
 const clearBtn = document.querySelector('.all-clear');
 const decimal = document.querySelector('.decimal');
+const percentage = document.querySelector('.percentage');
 
 let prevNumber = '';
 let calculationOperator = '';
@@ -34,6 +35,11 @@ clearBtn.addEventListener('click', () => {
 
 decimal.addEventListener('click', (event) => {
   inputDecimal(event.target.value);
+  updateScreen(currentNumber);
+})
+
+percentage.addEventListener('click', () => {
+  inputPercentage();
   updateScreen(currentNumber);
 })
 
@@ -89,5 +95,11 @@ const inputDecimal = (dot) => {
   if(currentNumber.includes('.')) return;
 
   currentNumber += dot;
+}
+
+const inputPercentage = () => {
+  if(currentNumber === '0') return;
+
+  currentNumber = currentNumber / 100;
 }
 
